@@ -1,4 +1,4 @@
-import cryptography
+from cryptography import Cryptographer
 
 def start():
 	print('''  
@@ -33,17 +33,17 @@ def start():
 		[20] - Coming soon...
 	''')
 	
-	try:
-		option = int(input('Your option: '))
-		print('You have chosen the option {}'.format(option))
+	while True:
+		try:
+			option = int(input('Your option: '))
+		except ValueError: 
+			print('No letters or special characters are permitted')
+			continue
 		run_program(option)
-		return True
-	except ValueError: 
-		print('No letters or special characters are permitted')
-		return False
+		start()
 
 def run_program(option):
-	programs = { 1: cryptography }
+	programs = { 1: Cryptographer() }
 	return programs[option].start()
 	
 if __name__ == '__main__':
