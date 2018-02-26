@@ -48,20 +48,16 @@ class Cryptographer:
 		while True:
 			question = str(input('\nDo you want to cypher another message? (Y/N): ')).lower()
 			if question == 'y': 
-				self.cypher()
+				return self.cypher()
 			elif question == 'n':
-				self.start()
+				return self.start()
 			print('\nCommand not found. Please enter Y or N.')
 
 
 	def decypher(self):
-		code = str(input('Write a crypted code in bytes: ')).strip()
-		
-		if len(code) < 7:
-			print('Please, write a crypted code IN BYTES')
-			return self.decypher()
-		
+		code = str(input('\nWrite a crypted code in bytes: ')).strip()
 		bytes = code.split(' ')
+		
 		try:
 			decypher_message = [str(chr(int(byte, 2))) for byte in bytes]
 			result = ''.join(decypher_message).strip()
@@ -72,4 +68,12 @@ class Cryptographer:
 		if len(result) < 2:
 			print('I have not been able to decipher your message. Try something different')
 			return self.decypher()
-		return print('Your code has been decrypted as: {}'.format(result))
+		print('\nYour code has been decrypted as: {}'.format(result))
+		
+		while True:
+			question = str(input('\nDo you want to decypher another message? (Y/N): ')).lower()
+			if question == 'y': 
+				return self.decypher()
+			elif question == 'n':
+				return self.start()
+			print('\nCommand not found. Please enter Y or N.')
