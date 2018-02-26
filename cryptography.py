@@ -1,9 +1,7 @@
+import sys
+
 class Cryptographer:
 	def __init__(self):
-		print('Hello from class')
-		self.name = 'Alejandoing'
-	
-	def start(self):
 		print('''
 			___________________________________________________________________
 			 _____                  _                              _           
@@ -15,14 +13,17 @@ class Cryptographer:
 			             __/ | |              __/ |         | |           __/ |
 			            |___/|_|             |___/          |_|          |___/
 			___________________________________________________________________
-        ''')
-
+		''')
+	
+	def start(self):
 		while True:
 			print(''' 
 				Select a option:
 
 				[1]: Cypher
 				[2]: Decypher
+				[3]: Back to main menu
+				[4]: Exit
 			''')
 
 			option = str(input('Your option: '))
@@ -31,13 +32,27 @@ class Cryptographer:
 				self.cypher()
 			elif option == '2':
 				self.decypher()
+			elif option == '3':
+				break
+			elif option == '4':
+				print('\nThanks for using Python Algorithms.')
+				sys.exit()
 			else:
-				print('Command not found. Please select a option')
+				print('\nCommand not found.')
 	
 	def cypher(self):
-		message = str(input('Write a message: '))
+		message = str(input('\nWrite a message: '))
 		result = ' '.join(format(ord(letter), 'b') for letter in message)
-		return print('Your message has been crypted to {}'.format(result))
+		print('\nYour message has been crypted to {}'.format(result))
+
+		while True:
+			question = str(input('\nDo you want to cypher another message? (Y/N): ')).lower()
+			if question == 'y': 
+				self.cypher()
+			elif question == 'n':
+				self.start()
+			print('\nCommand not found. Please enter Y or N.')
+
 
 	def decypher(self):
 		code = str(input('Write a crypted code in bytes: ')).strip()

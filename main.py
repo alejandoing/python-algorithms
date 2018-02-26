@@ -40,6 +40,7 @@ def start():
 			print('No letters or special characters are permitted')
 			continue
 		run_program(option)
+		start()
 
 def run_program(option):
 	programs = { 1: Cryptographer() }
