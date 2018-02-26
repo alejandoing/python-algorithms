@@ -2,6 +2,7 @@ import sys
 
 class Cryptographer:
 	def __init__(self):
+		self.starting = True
 		print('''
 			___________________________________________________________________
 			 _____                  _                              _           
@@ -26,19 +27,14 @@ class Cryptographer:
 				[4]: Exit
 			''')
 
-			option = str(input('Your option: '))
+			try:
+				option = int(input('Your option: '))
+			except ValueError:
+				print('\nCommand not found')
+				continue
 			
-			if option == '1':
-				self.cypher()
-			elif option == '2':
-				self.decypher()
-			elif option == '3':
-				break
-			elif option == '4':
-				print('\nThanks for using Python Algorithms.')
-				sys.exit()
-			else:
-				print('\nCommand not found.')
+			options = {1: self.cypher, 2: self.decypher, 3: False, 4: sys.exit}
+			if not self.choose_option(option, options): break
 	
 	def cypher(self):
 		message = str(input('\nWrite a message: '))
@@ -46,34 +42,37 @@ class Cryptographer:
 		print('\nYour message has been crypted to {}'.format(result))
 
 		while True:
-			question = str(input('\nDo you want to cypher another message? (Y/N): ')).lower()
-			if question == 'y': 
-				return self.cypher()
-			elif question == 'n':
-				return self.start()
-			print('\nCommand not found. Please enter Y or N.')
-
+			options = {'y': self.cypher, 'n': self.start}
+			answer = str(input('\nDo you want to cypher another message? (Y/N): ')).lower()
+			if not self.choose_option(answer, options): break
 
 	def decypher(self):
-		code = str(input('\nWrite a crypted code in bytes: ')).strip()
+		code = str(input('\nWrite a 7bit ASCII codes: ')).strip()
 		bytes = code.split(' ')
 		
 		try:
 			decypher_message = [str(chr(int(byte, 2))) for byte in bytes]
 			result = ''.join(decypher_message).strip()
+			if len(code) < 7: raise ValueError
 		except:
-			print('Please, write a crypted code IN BYTES')
+			print('\nPlease, just write a 7bit ASCII codes')
 			return self.decypher()
 		
-		if len(result) < 2:
-			print('I have not been able to decipher your message. Try something different')
-			return self.decypher()
 		print('\nYour code has been decrypted as: {}'.format(result))
 		
 		while True:
-			question = str(input('\nDo you want to decypher another message? (Y/N): ')).lower()
-			if question == 'y': 
-				return self.decypher()
-			elif question == 'n':
-				return self.start()
-			print('\nCommand not found. Please enter Y or N.')
+			options = {'y': self.decypher, 'n': self.start}
+			answer = str(input('\nDo you want to decypher another message? (Y/N): ')).lower()
+			if not self.choose_option(answer, options): break
+
+	def choose_option(self, selected, options):
+		if not self.starting: return False
+		
+		try:
+			return options[selected]()
+		except TypeError:
+			self.starting = False
+			return options[selected]
+		except KeyError:
+			print('\nCommand not found')
+			return True
