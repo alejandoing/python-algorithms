@@ -32,10 +32,12 @@ class BinarySearch:
 				method = int(input("\nYour option: "))
 				if method == 1: 
 					self.random_numbers()
-					while True:
-						number = int(input("\nWrite a number: "))
-						self.start_time = time.time()
-						self.search(number, 0, len(self.numbers) - 1)
+				elif method == 2:
+					self.manual_numbers()
+				while True:
+					number = int(input("\nWrite a number: "))
+					self.start_time = time.time()
+					self.search(number, 0, len(self.numbers) - 1)
 				self.numbers = []
 			except ValueError:
 				print("\nCommand not found")
@@ -44,6 +46,10 @@ class BinarySearch:
 	def random_numbers(self):
 		self.numbers = sorted(set([random.randint(1,10001) for x in range(random.randint(1,10001))]))
 		return print("\nA collection of {} numbers has been generated".format(len(self.numbers)))
+
+	def manual_numbers(self):
+		self.numbers = list(map(int, str(input("\nWrite numbers separated by comma: ")).split(',')))
+		return print("\nYour collection {} has been generated".format(self.numbers))
 
 	def search(self, number_to_find, low, high):
 		elapsed_time = round(time.time() - self.start_time, 5)
