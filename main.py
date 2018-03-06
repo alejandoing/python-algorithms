@@ -1,4 +1,5 @@
 from cryptography import Cryptographer
+from binary_search import BinarySearch
 
 def start():
 	print('''  
@@ -12,10 +13,10 @@ def start():
 
 	print('''Please, select a option to get started: 
 		[1] - Cryptography
-		[2] - Coming soon...
-		[3] - Coming soon...
-		[4] - Coming soon...
-		[5] - Coming soon...
+		[2] - Binary Search
+		[3] - Hanged
+		[4] - Contact Book
+		[5] - Variance and Standard Deviation
 		[6] - Coming soon...
 		[7] - Coming soon...
 		[8] - Coming soon...
@@ -43,8 +44,8 @@ def start():
 		start()
 
 def run_program(option):
-	programs = { 1: Cryptographer() }
-	return programs[option].start()
+	programs = { 1: Cryptographer, 2: BinarySearch }
+	return programs[option]().start()
 	
 if __name__ == '__main__':
 	start()
