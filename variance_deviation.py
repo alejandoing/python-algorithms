@@ -1,11 +1,9 @@
 import sys
 import random
+import math
 
 class VarianceDeviation:
 	def __init__(self):
-		pass
-
-	def start(self):
 		print('''
 			________________________________________________________________________________________
 			                        _   _            _                                              
@@ -27,6 +25,7 @@ class VarianceDeviation:
 
 	def start(self):
 		while True:
+			
 			print(''' 
 				Select a option:
 
@@ -35,12 +34,12 @@ class VarianceDeviation:
 				[3]: Back to main menu
 				[4]: Exit
 			''')
+
 			try:
 				method = int(input("\nYour option: "))
-				if method == 1: 
+				if method == 1:
 					self.random_numbers()
-					self.get_variance()
-					self.numbers = []
+					self.get_standard_deviation(self.get_variance(self.numbers))
 				elif method == 2: 
 					pass
 				elif method == 3:
@@ -50,12 +49,6 @@ class VarianceDeviation:
 				else:
 					print("\nCommand not found")
 					continue
-				
-				# while True:
-				# 	number = int(input("\nWrite a number: "))
-				# 	#self.start_time = time.time()
-				# 	#self.search(number, 0, len(self.numbers) - 1)
-				# 	break
 
 			except ValueError:
 				print("\nCommand not found")
@@ -63,13 +56,14 @@ class VarianceDeviation:
 
 	def random_numbers(self):
 		self.numbers = [random.randint(1,101) for x in range(random.randint(2,5))]
-		print(self.numbers)
-		return print("\nA collection of {} numbers has been generated".format(len(self.numbers)))
+		return self.numbers
 
-	def get_variance(self):
-		average = sum(self.numbers) // len(self.numbers)
-		variance = sum([(number - average) **2 for number in self.numbers]) // (len(self.numbers) - 1)
-		print('The variance is {}'.format(variance))
+	def get_variance(self, sample):
+		variance = round(sum([(number - sum(sample) / len(sample)) **2 for number in sample]) / (len(sample) - 1), 2)
+		print('The variance of {} is {}'.format(sample, variance))
+		return variance
 
-	def standard_deviation(self):
-		pass
+	def get_standard_deviation(self, variance):
+		standard_deviation = round(math.sqrt(variance), 2)
+		print('The standard_deviation of {} is {}'.format(self.numbers, standard_deviation))
+		return standard_deviation
