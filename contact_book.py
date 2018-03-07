@@ -46,7 +46,7 @@ class ContactBook:
 				elif method == 4: 
 					pass
 				elif method == 5: 
-					pass
+					self.show_all()
 				elif method == 6:
 					break
 				elif method == 7:
@@ -63,5 +63,14 @@ class ContactBook:
 		name = str(input('\nWrite a name: '))
 		phone = str(input('\nWrite a phone: '))
 		email = str(input('\nWrite a email: '))
-		contact = Contact(name, phone, email)
-		self._contacts.append(contact)
+		self._contacts.append(Contact(name, phone, email))
+
+	def show_all(self):
+		[self._print_contact(contact) for contact in self._contacts]
+
+	def _print_contact(self, contact):
+		print('\n--- * --- * ---- * ---- * ---- * ---- * ----')
+		print('Nombre: {}'.format(contact.name))
+		print('Teléfono: {}'.format(contact.phone))
+		print('Email: {}'.format(contact.email))
+		print('--- * --- * ---- * ---- * ---- * ---- * ----')
