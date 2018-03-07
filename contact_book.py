@@ -1,7 +1,15 @@
 import sys
 
+class Contact:
+	def __init__(self, name, phone, email):
+		self.name = name
+		self.phone = phone
+		self.email = email
+
 class ContactBook:
 	def __init__(self):
+		self._contacts = []
+
 		print('''
 			______________________________________________________________
 			 _____             _             _    ______             _ 
@@ -30,7 +38,7 @@ class ContactBook:
 			try:
 				method = int(input("\nYour option: "))
 				if method == 1: 
-					pass
+					self.add()
 				elif method == 2: 
 					pass
 				elif method == 3: 
@@ -46,13 +54,14 @@ class ContactBook:
 				else:
 					print("\nCommand not found")
 					continue
-				
-				# while True:
-				# 	number = int(input("\nWrite a number: "))
-				# 	self.start_time = time.time()
-				# 	self.search(number, 0, len(self.numbers) - 1)
-				# 	break
 
 			except ValueError:
 				print("\nCommand not found")
 				continue
+
+	def add(self):
+		name = str(input('\nWrite a name: '))
+		phone = str(input('\nWrite a phone: '))
+		email = str(input('\nWrite a email: '))
+		contact = Contact(name, phone, email)
+		self._contacts.append(contact)
