@@ -39,9 +39,8 @@ class VarianceDeviation:
 				method = int(input("\nYour option: "))
 				if method == 1:
 					self.random_numbers()
-					self.get_standard_deviation(self.get_variance(self.numbers))
 				elif method == 2: 
-					pass
+					self.manual_numbers()
 				elif method == 3:
 					break
 				elif method == 4:
@@ -49,21 +48,26 @@ class VarianceDeviation:
 				else:
 					print("\nCommand not found")
 					continue
+				self.get_standard_deviation(self.get_variance(self.numbers), self.numbers)
 
 			except ValueError:
 				print("\nCommand not found")
 				continue
 
 	def random_numbers(self):
-		self.numbers = [random.randint(1,101) for x in range(random.randint(2,5))]
+		self.numbers = [random.randint(1,101) for x in range(random.randint(2,101))]
+		return self.numbers
+
+	def manual_numbers(self):
+		self.numbers = list(map(int, str(input("\nWrite numbers separated by comma: ")).split(',')))
 		return self.numbers
 
 	def get_variance(self, sample):
 		variance = round(sum([(number - sum(sample) / len(sample)) **2 for number in sample]) / (len(sample) - 1), 2)
-		print('The variance of {} is {}'.format(sample, variance))
+		print('The Variance of {} is {}'.format(sample, variance))
 		return variance
 
-	def get_standard_deviation(self, variance):
+	def get_standard_deviation(self, variance, sample):
 		standard_deviation = round(math.sqrt(variance), 2)
-		print('The standard_deviation of {} is {}'.format(self.numbers, standard_deviation))
+		print('The Standard Deviation of {} is {}'.format(sample, standard_deviation))
 		return standard_deviation
