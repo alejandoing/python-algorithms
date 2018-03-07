@@ -1,6 +1,7 @@
 from cryptography import Cryptographer
 from binary_search import BinarySearch
 from variance_deviation import VarianceDeviation
+from contact_book import ContactBook
 
 def start():
 	print('''  
@@ -45,7 +46,7 @@ def start():
 		start()
 
 def run_program(option):
-	programs = { 1: Cryptographer, 2: BinarySearch, 3: VarianceDeviation }
+	programs = { 1: Cryptographer, 2: BinarySearch, 3: VarianceDeviation, 4: ContactBook }
 	return programs[option]().start()
 	
 if __name__ == '__main__':
