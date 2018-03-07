@@ -39,6 +39,8 @@ class VarianceDeviation:
 				method = int(input("\nYour option: "))
 				if method == 1: 
 					self.random_numbers()
+					self.get_variance()
+					self.numbers = []
 				elif method == 2: 
 					pass
 				elif method == 3:
@@ -60,6 +62,14 @@ class VarianceDeviation:
 				continue
 
 	def random_numbers(self):
-		self.numbers = [random.randint(1,101) for x in range(random.randint(1,101))]
+		self.numbers = [random.randint(1,101) for x in range(random.randint(2,5))]
 		print(self.numbers)
 		return print("\nA collection of {} numbers has been generated".format(len(self.numbers)))
+
+	def get_variance(self):
+		average = sum(self.numbers) // len(self.numbers)
+		variance = sum([(number - average) **2 for number in self.numbers]) // (len(self.numbers) - 1)
+		print('The variance is {}'.format(variance))
+
+	def standard_deviation(self):
+		pass
