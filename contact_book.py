@@ -1,4 +1,5 @@
 import sys
+import csv
 
 class Contact:
 	def __init__(self, name, phone, email):
@@ -20,6 +21,7 @@ class ContactBook:
 
 			______________________________________________________________
 		''')
+		self._read()
 
 	def start(self):
 		while True:
@@ -68,6 +70,7 @@ class ContactBook:
 				break
 		else:
 			self._contacts.append(Contact(name, phone, email))
+			self._save()
 
 	def show_all(self):
 		contacts = [self._print_contact(contact) for contact in self._contacts]
@@ -109,6 +112,7 @@ class ContactBook:
 
 					self._contacts[index] = Contact(name, phone, email)
 					self._print_contact(self._contacts[index])
+					self._save()
 					print('Contact has been updated successfully!')
 					break
 
@@ -121,6 +125,7 @@ class ContactBook:
 		if old_contact:
 			index = self._contacts.index(old_contact)
 			del self._contacts[index]
+			self._save()
 			print('Contact {} has been deleted successfully!'.format(old_contact.name))
 
 
@@ -133,6 +138,19 @@ class ContactBook:
 		else:
 			print('\nContact not found')
 			return False
+
+	def _read(self):
+		with open('contacts.csv', 'rt', encoding="utf-8") as f:
+			reader = csv.reader(f)
+			for idx, row in enumerate(reader):
+				if idx == 0 or row == []: continue
+				self._contacts.append(Contact(row[0], row[1], row[2]))
+
+	def _save(self):
+		with open('contacts.csv', 'w') as f:
+			writer = csv.writer(f)
+			writer.writerow(('name', 'phone', 'email'))
+			[writer.writerow((contact.name, contact.phone, contact.email)) for contact in self._contacts]
 
 	def _print_contact(self, contact):
 		print('\n--- * --- * ---- * ---- * ---- * ---- * ----')
