@@ -9,7 +9,6 @@ class Contact:
 class ContactBook:
 	def __init__(self):
 		self._contacts = []
-
 		print('''
 			______________________________________________________________
 			 _____             _             _    ______             _ 
@@ -44,7 +43,7 @@ class ContactBook:
 				elif method == 3: 
 					self.search()
 				elif method == 4: 
-					pass
+					self.delete()
 				elif method == 5: 
 					self.show_all()
 				elif method == 6:
@@ -63,18 +62,24 @@ class ContactBook:
 		name = str(input('\nWrite a name: '))
 		phone = str(input('\nWrite a phone: '))
 		email = str(input('\nWrite a email: '))
-		self._contacts.append(Contact(name, phone, email))
+		for contact in self._contacts:
+			if contact.name.lower() == name.lower():
+				print('\nThere is already a contact with the name of {}!'.format(name))
+				break
+		else:
+			self._contacts.append(Contact(name, phone, email))
 
 	def show_all(self):
 		contacts = [self._print_contact(contact) for contact in self._contacts]
 		if not len(contacts): print('\nThere are no added contacts')
 
 	def update(self):
-		contact_old = self.search()
-		if contact_old:
-			name = contact_old.name
-			phone = contact_old.phone
-			email = contact_old.email
+		old_contact = self.search()
+		if old_contact:
+			index = self._contacts.index(old_contact)
+			name = old_contact.name
+			phone = old_contact.phone
+			email = old_contact.email
 
 			while True:
 				print(''' 
@@ -102,18 +107,21 @@ class ContactBook:
 						print("\nCommand not found")
 						continue
 
-					contact_new = Contact(name, phone, email)
-					
-					for idx, contact in enumerate(self._contacts):
-						if contact.name.lower() == contact_old.name.lower():
-							self._contacts[idx] = contact_new
-							self._print_contact(contact_new)
-							break
+					self._contacts[index] = Contact(name, phone, email)
+					self._print_contact(self._contacts[index])
+					print('Contact has been updated successfully!')
 					break
 
 				except ValueError:
 					print("\nCommand not found")
 					continue
+
+	def delete(self):
+		old_contact = self.search()
+		if old_contact:
+			index = self._contacts.index(old_contact)
+			del self._contacts[index]
+			print('Contact {} has been deleted successfully!'.format(old_contact.name))
 
 
 	def search(self):
