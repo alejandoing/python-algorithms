@@ -1,4 +1,5 @@
 import sys
+import random
 
 class Hanged:
     def __init__(self):
@@ -14,10 +15,70 @@ class Hanged:
                                 |___/
             ____________________________________
         ''')
+        self.images = ['''
+            +---+
+            |   |
+                |
+                |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+                |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+            |   |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+           /|   |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+           /|\  |
+                |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+           /|\  |
+           /    |
+                |
+            =========''', '''
+            +---+
+            |   |
+            O   |
+           /|\  |
+           / \  |
+                |
+            ========='''
+        ]
+
+        self.words = ['lavadora', 'secadora', 'sofa', 'gobierno', 'diputado', 'democracia', 'computadora']
+        self.tries = 0
+        self.word = None
+        self.hidden_word = None
 
     def start(self):
+        self.word = self.random_word()
+        self.hidden_word = ['-'] * len(self.word)
         while True:
-            letter = str(input('Write a letter: '))
+            self.display_board()
+            current_letter = str(input('Write a letter: '))
+            self.tries += 1
             # try:
             #     method = int(input("\nYour option: "))
             #     if method == 1: 
@@ -41,3 +102,12 @@ class Hanged:
             # except ValueError:
             #     print("\nCommand not found")
             #     continue
+
+    def random_word(self):
+        index = random.randint(0, len(self.words) - 1)
+        return self.words[index]
+
+    def display_board(self):
+        print(self.images[self.tries])
+        print("\n {}".format(self.hidden_word))
+        print('--- * --- * --- * --- * --- * ---')
