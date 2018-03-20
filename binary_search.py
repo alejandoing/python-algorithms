@@ -40,8 +40,7 @@ class BinarySearch:
 				elif method == 4:
 					sys.exit()
 				else:
-					print("\nCommand not found")
-					continue
+					raise ValueError
 				
 				while True:
 					number = int(input("\nWrite a number: "))

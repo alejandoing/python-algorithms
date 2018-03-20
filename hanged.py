@@ -82,9 +82,12 @@ class Hanged:
             ''')
             try:
                 method = int(input("\nYour option: "))
-                if method == 1: self.start_game()
-                elif method == 2: break
-                elif method == 3: sys.exit()
+                if method == 1: 
+                    self.start_game()
+                elif method == 2: 
+                    break
+                elif method == 3: 
+                    sys.exit()
                 raise ValueError
 
             except ValueError:
