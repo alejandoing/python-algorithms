@@ -68,13 +68,30 @@ class Hanged:
         ]
 
         self.words = ['lavadora', 'secadora', 'sofa', 'gobierno', 'diputado', 'democracia', 'computadora']
-        self.tries = 0
-        self.word = None
-        self.hidden_word = None
-        self.current_letter = None
-        self.letters_used = list()
+        self.reset_game()
 
     def start(self):
+        while True:
+
+            print(''' 
+                Select a option:
+
+                [1]: Start game
+                [2]: Back to main menu
+                [3]: Exit
+            ''')
+            try:
+                method = int(input("\nYour option: "))
+                if method == 1: self.start_game()
+                elif method == 2: break
+                elif method == 3: sys.exit()
+                raise ValueError
+
+            except ValueError:
+                print("\nCommand not found")
+                continue
+
+    def start_game(self):
         self.word = self.random_word()
         self.hidden_word = ['-'] * len(self.word)
         while True:
