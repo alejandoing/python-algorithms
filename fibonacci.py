@@ -1,3 +1,5 @@
+import sys
+
 class FibonacciSequence:
     def __init__(self):
         print('''
@@ -12,4 +14,36 @@ class FibonacciSequence:
         ''')
     
     def start(self):
+        while True:
+            
+            print(''' 
+                Select a option:
+
+                [1]: Look for a number by it's index
+                [2]: Write sequence until
+                [3]: Back to main menu
+                [4]: Exit
+            ''')
+
+            try:
+                method = int(input("\nYour option: "))
+                if method == 1:
+                    self.look_by_index()
+                elif method == 2: 
+                    self.write_sequence()
+                elif method == 3:
+                    break
+                elif method == 4:
+                    sys.exit()
+                else:
+                    raise ValueError
+
+            except ValueError:
+                print("\nCommand not found")
+                continue
+
+    def look_by_index(self):
+        pass
+    
+    def write_sequence(self):
         pass
