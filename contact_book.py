@@ -53,8 +53,7 @@ class ContactBook:
 				elif method == 7:
 					sys.exit()
 				else:
-					print("\nCommand not found")
-					continue
+					raise ValueError
 
 			except ValueError:
 				print("\nCommand not found")

@@ -46,8 +46,7 @@ class VarianceDeviation:
 				elif method == 4:
 					sys.exit()
 				else:
-					print("\nCommand not found")
-					continue
+					raise ValueError
 				self.get_standard_deviation(self.get_variance(self.numbers), self.numbers)
 
 			except ValueError:
