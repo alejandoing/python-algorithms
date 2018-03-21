@@ -157,7 +157,9 @@ class Hanged:
     def choose_yes_or_not(self, question):
         while True:
             answer = str(input(question)).lower()
-            if answer == 'n': return False
+            if answer == 'n':
+                self.reset_game() 
+                return False
             elif answer == 'y':
                 self.reset_game()
                 return True
