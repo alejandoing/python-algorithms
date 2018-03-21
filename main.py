@@ -3,24 +3,26 @@ from binary_search import BinarySearch
 from variance_deviation import VarianceDeviation
 from contact_book import ContactBook
 from hanged import Hanged
+from fibonacci import FibonacciSequence
 
 def start():
 	print('''  
       __^__                                      __^__
      ( ___ )------------------------------------( ___ )
       | / |                                      | \ |
-      | / |   Welcome to the Python Algorithms   | \ |
-      |___|           by Alejandoing             |___|
+      | / |    WELCOME TO THE PYTHON ALGORITHMS  | \ |
+      |___|             BY ALEJANDOING           |___|
      (_____)------------------------------------(_____) 
     ''')
 
 	print('''Please, select a option to get started: 
+
 		[1] - Cryptography
 		[2] - Binary Search
 		[3] - Variance and Standard Deviation
 		[4] - Contact Book
 		[5] - Hanged
-		[6] - Coming soon...
+		[6] - Fibonacci
 		[7] - Coming soon...
 		[8] - Coming soon...
 		[9] - Coming soon...
@@ -47,7 +49,10 @@ def start():
 		start()
 
 def run_program(option):
-	programs = { 1: Cryptographer, 2: BinarySearch, 3: VarianceDeviation, 4: ContactBook, 5: Hanged }
+	programs = { 
+		1: Cryptographer, 2: BinarySearch, 3: VarianceDeviation, 4: ContactBook, 5: Hanged,
+		6: FibonacciSequence 
+	}
 	return programs[option]().start()
 	
 if __name__ == '__main__':
