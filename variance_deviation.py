@@ -47,26 +47,31 @@ class VarianceDeviation:
 					sys.exit()
 				else:
 					raise ValueError
-				self.get_standard_deviation(self.get_variance(self.numbers), self.numbers)
+				self.get_standard_deviation(self.get_variance(self.numbers))
 
 			except ValueError:
 				print("\nCommand not found")
 				continue
 
 	def random_numbers(self):
-		self.numbers = [random.randint(1,101) for x in range(random.randint(2,101))]
+		self.numbers = [random.randint(1,31) for x in range(random.randint(2,31))]
+		print("\nSample: {}".format(self.numbers))
 		return self.numbers
 
 	def manual_numbers(self):
-		self.numbers = list(map(int, str(input("\nWrite numbers separated by comma: ")).split(',')))
-		return self.numbers
+		try:
+			self.numbers = list(map(int, str(input("\nWrite numbers separated by comma: ")).split(',')))
+			return self.numbers
+		except ValueError:
+			print("\nPlease, just integers numbers seperated by coma.")
+			return self.manual_numbers()
 
 	def get_variance(self, sample):
-		variance = round(sum([(number - sum(sample) / len(sample)) **2 for number in sample]) / (len(sample) - 1), 2)
-		print('The Variance of {} is {}'.format(sample, variance))
+		variance = sum([(number - sum(sample) / len(sample)) **2 for number in sample]) / (len(sample) - 1)
+		print('\nThe Variance is {}'.format(variance))
 		return variance
 
-	def get_standard_deviation(self, variance, sample):
-		standard_deviation = round(math.sqrt(variance), 2)
-		print('The Standard Deviation of {} is {}'.format(sample, standard_deviation))
+	def get_standard_deviation(self, variance):
+		standard_deviation = math.sqrt(variance)
+		print('The Standard Deviation is {}'.format(standard_deviation))
 		return standard_deviation
