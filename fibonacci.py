@@ -46,4 +46,9 @@ class FibonacciSequence:
         pass
     
     def write_sequence(self):
-        pass
+        limit = 200
+        sequence = [0, 1]
+        print("0: 0")
+        for position in range(1, limit + 1):
+            print("{}: {}".format(position, sequence[-1]))
+            sequence = [sequence[1], sequence[0] + sequence[1]]
