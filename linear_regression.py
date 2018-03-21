@@ -1,4 +1,5 @@
 import sys
+import random
 
 class LinearRegression:
     def __init__(self):
@@ -30,17 +31,30 @@ class LinearRegression:
             try:
                 method = int(input("\nYour option: "))
                 if method == 1:
-                    pass
+                    self.random_numbers()
                 elif method == 2: 
-                    pass
+                    self.manual_numbers()
                 elif method == 3:
                     break
                 elif method == 4:
                     sys.exit()
                 else:
                     raise ValueError
-                #self.get_standard_deviation(self.get_variance(self.numbers))
 
             except ValueError:
                 print("\nCommand not found")
                 continue
+
+    def random_numbers(self):
+        self.numbers = [random.randint(1,31) for x in range(random.randint(2,31))]
+        print("\nSample: {}".format(self.numbers))
+        return self.numbers
+
+    def manual_numbers(self):
+        try:
+            self.numbers = list(map(int, str(input("\nWrite numbers separated by comma: ")).split(',')))
+            print("\nSample: {}".format(self.numbers))
+            return self.numbers
+        except ValueError:
+            print("\nPlease, just integers numbers seperated by coma.")
+            return self.manual_numbers()

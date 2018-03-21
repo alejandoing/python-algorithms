@@ -61,6 +61,7 @@ class VarianceDeviation:
 	def manual_numbers(self):
 		try:
 			self.numbers = list(map(int, str(input("\nWrite numbers separated by comma: ")).split(',')))
+			print("\nSample: {}".format(self.numbers))
 			return self.numbers
 		except ValueError:
 			print("\nPlease, just integers numbers seperated by coma.")
