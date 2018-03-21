@@ -43,10 +43,13 @@ class BinarySearch:
 					raise ValueError
 				
 				while True:
-					number = int(input("\nWrite a number: "))
-					self.start_time = time.time()
-					self.search(number, 0, len(self.numbers) - 1)
-					break
+					try:
+						number = int(input("\nWrite a number: "))
+						self.start_time = time.time()
+						self.search(number, 0, len(self.numbers) - 1)
+						break
+					except ValueError:
+						print("\nPlease, just integer numbers")
 
 			except ValueError:
 				print("\nCommand not found")
