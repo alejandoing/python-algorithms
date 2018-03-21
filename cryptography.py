@@ -47,7 +47,7 @@ class Cryptographer:
 			if not self.choose_option(answer, options): break
 
 	def decypher(self):
-		code = str(input('\nWrite a 7bit ASCII codes: ')).strip()
+		code = str(input('\nWrite a 8 bit ASCII code: ')).strip()
 		bytes = code.split(' ')
 		
 		try:
@@ -55,7 +55,7 @@ class Cryptographer:
 			result = ''.join(decypher_message).strip()
 			if len(code) < 7: raise ValueError
 		except:
-			print('\nPlease, just write a 7bit ASCII codes')
+			print('\nPlease, just write a 8 bit ASCII codes')
 			return self.decypher()
 		
 		print('\nYour code has been decrypted as: {}'.format(result))
