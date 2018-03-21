@@ -60,20 +60,21 @@ class ContactBook:
 				continue
 
 	def add(self):
-		name = str(input('\nWrite a name: '))
-		phone = str(input('\nWrite a phone: '))
-		email = str(input('\nWrite a email: '))
+		name = str(input("\nWrite a name: "))
+		phone = str(input("\nWrite a phone: "))
+		email = str(input("\nWrite a email: "))
 		for contact in self._contacts:
 			if contact.name.lower() == name.lower():
-				print('\nThere is already a contact with the name of {}!'.format(name))
+				print("\nThere is already a contact with the name of {}!".format(name))
 				break
 		else:
 			self._contacts.append(Contact(name, phone, email))
 			self._save()
+			print("\nContact {} successfully added". format(name))
 
 	def show_all(self):
 		contacts = [self._print_contact(contact) for contact in self._contacts]
-		if not len(contacts): print('\nThere are no added contacts')
+		if not len(contacts): print("\nThere are no added contacts")
 
 	def update(self):
 		old_contact = self.search()
@@ -96,15 +97,15 @@ class ContactBook:
 				try:
 					method = int(input("\nYour option: "))
 					if method == 1: 
-						name = str(input('\nWrite a name: '))
+						name = str(input("\nWrite a name: "))
 					elif method == 2:
-						phone = str(input('\nWrite a phone: '))
+						phone = str(input("\nWrite a phone: "))
 					elif method == 3:
-						email = str(input('\nWrite a email: '))
+						email = str(input("\nWrite a email: "))
 					elif method == 4:
-						name = str(input('\nWrite a name: '))
-						phone = str(input('\nWrite a phone: '))
-						email = str(input('\nWrite a email: '))
+						name = str(input("\nWrite a name: "))
+						phone = str(input("\nWrite a phone: "))
+						email = str(input("\nWrite a email: "))
 					else:
 						print("\nCommand not found")
 						continue
@@ -112,7 +113,7 @@ class ContactBook:
 					self._contacts[index] = Contact(name, phone, email)
 					self._print_contact(self._contacts[index])
 					self._save()
-					print('Contact has been updated successfully!')
+					print("\nContact has been updated successfully!")
 					break
 
 				except ValueError:
@@ -125,17 +126,17 @@ class ContactBook:
 			index = self._contacts.index(old_contact)
 			del self._contacts[index]
 			self._save()
-			print('Contact {} has been deleted successfully!'.format(old_contact.name))
+			print("\nContact {} has been deleted successfully!".format(old_contact.name))
 
 
 	def search(self):
-		name = str(input('\nWrite a name: ')).strip()
+		name = str(input("\nWrite a name: ")).strip()
 		for contact in self._contacts:
 			if contact.name.lower() == name.lower():
 				self._print_contact(contact)
 				return contact
 		else:
-			print('\nContact not found')
+			print("\nContact not found")
 			return False
 
 	def _read(self):
@@ -152,8 +153,8 @@ class ContactBook:
 			[writer.writerow((contact.name, contact.phone, contact.email)) for contact in self._contacts]
 
 	def _print_contact(self, contact):
-		print('\n--- * --- * ---- * ---- * ---- * ---- * ----')
-		print('Nombre: {}'.format(contact.name))
-		print('Teléfono: {}'.format(contact.phone))
-		print('Email: {}'.format(contact.email))
-		print('--- * --- * ---- * ---- * ---- * ---- * ----')
+		print("\n--- * --- * ---- * ---- * ---- * ---- * ----")
+		print("Nombre: {}".format(contact.name))
+		print("Teléfono: {}".format(contact.phone))
+		print("Email: {}".format(contact.email))
+		print("--- * --- * ---- * ---- * ---- * ---- * ----")
