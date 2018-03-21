@@ -29,7 +29,7 @@ class LinearRegression:
             ''')
 
             try:
-                method = int(input("\nYour option: "))
+                method = int(input("\nYour option:"))
                 if method == 1:
                     self.random_numbers()
                 elif method == 2: 
@@ -40,21 +40,35 @@ class LinearRegression:
                     sys.exit()
                 else:
                     raise ValueError
+                
+                self.print_numbers()
 
             except ValueError:
                 print("\nCommand not found")
                 continue
 
     def random_numbers(self):
-        self.numbers = [random.randint(1,31) for x in range(random.randint(2,31))]
-        print("\nSample: {}".format(self.numbers))
+        self.numbers = { random.randint(1,1001): random.randint(1,1001) for x in range(random.randint(2,10)) }
         return self.numbers
 
     def manual_numbers(self):
+        self.numbers = {}
         try:
-            self.numbers = list(map(int, str(input("\nWrite numbers separated by comma: ")).split(',')))
-            print("\nSample: {}".format(self.numbers))
+            keys = list((map(int, str(input("\nWrite keys separated by comma: ")).split(','))))
+            values = list((map(int, str(input("\nWrite values separated by comma: ")).split(','))))
+            self.numbers = {key: values[idx] for idx, key in enumerate(keys)}
             return self.numbers
+        
         except ValueError:
             print("\nPlease, just integers numbers seperated by coma.")
+            self.numbers = {}
             return self.manual_numbers()
+
+        except IndexError:
+            print("\nMust write the same number of elements")
+            self.numbers = {}
+            return self.manual_numbers()
+    
+    def print_numbers(self):
+        print("\nGenerated Sample:")
+        {print("\n{} => {}".format(key, val)) for key, val in self.numbers.items()}
