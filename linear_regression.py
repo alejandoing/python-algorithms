@@ -42,40 +42,37 @@ class LinearRegression:
                     raise ValueError
                 
                 pending = self.get_pending(self.numbers)
-                self.get_point_intersection(self.numbers, pending)
+                point_intersection = self.get_point_intersection(self.numbers, pending)
+                self.get_prediction(self.numbers, pending, point_intersection)
 
             except ValueError:
                 print("\nCommand not found")
                 continue
 
     def random_numbers(self):
-        self.numbers = { x: random.randint(1,1001) for x in range(random.randint(1,10)) }
-        return self.numbers
+        self.numbers = { x: random.randint(1,50) for x in range(random.randint(1,10)) }
+        return self.print_numbers()
 
     def manual_numbers(self):
-        self.numbers = {}
-        try:
-            values = list((map(int, str(input("\nWrite values separated by comma: ")).split(','))))
-            self.numbers = {idx + 1: value for idx, value in enumerate(values)}
-            return self.numbers
-        
-        except ValueError:
-            print("\nPlease, just integers numbers seperated by coma.")
+        while True:
             self.numbers = {}
-            return self.manual_numbers()
-
-        except IndexError:
-            print("\nMust write the same number of elements")
-            self.numbers = {}
-            return self.manual_numbers()
+            try:
+                values = list((map(int, str(input("\nWrite values separated by comma: ")).split(','))))
+                if len(values) == 1: raise ZeroDivisionError
+                self.numbers = {idx + 1: value for idx, value in enumerate(values)}
+                return self.print_numbers()
+            
+            except ValueError:
+                print("\nPlease, just integers numbers seperated by coma.")
+            
+            except ZeroDivisionError:
+                print("\nPlease, write more than one number")
     
     def print_numbers(self):
         print("\nGenerated Sample:")
         {print("\n{} => {}".format(key, val)) for key, val in self.numbers.items()}
 
     def get_pending(self, sample):
-        future = int(input("\nWrite a index of prediction "))
-        self.print_numbers()
         summatory_key_x_val = sum([(key * val) for key, val in sample.items()])
         summatory_val = sum(sample.values())
         summatory_key = sum(sample.keys())
@@ -88,3 +85,32 @@ class LinearRegression:
         mid_values = sum(sample.values()) / len(sample)
         mid_keys = sum(sample.keys()) / len(sample)
         return mid_values - (pending * mid_keys)
+
+    def get_prediction(self, sample, pending, point_intersection):
+        while True:
+            try:
+                time_frame = int(input("\nWrite a index of prediction: "))
+                if time_frame <= list(sample.keys())[-1]:
+                    raise IndexError
+                prediction = point_intersection + (pending * time_frame)
+                print("\nThe prediction is {}".format(prediction))
+                question = "\nDo you want to look for another prediction (Y/N): "
+                if not self.choose_yes_or_not(question): break
+            
+            except IndexError:
+                print("\nTry with a greater number than {}".format(list(sample.keys())[-1]))
+            
+            except ValueError:
+                print("\nPlease, just numbers")
+
+
+    def choose_yes_or_not(self, question):
+        while True:
+            answer = str(input(question)).lower()
+            if answer == 'n':
+                return False
+            elif answer == 'y':
+                return True
+            else:
+                print("\n Command not found")
+                continue
