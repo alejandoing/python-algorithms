@@ -42,7 +42,7 @@ class LinearRegression:
                     raise ValueError
                 
                 pending = self.get_pending(self.numbers)
-                #self.get_point_intersection(pending)
+                self.get_point_intersection(self.numbers, pending)
 
             except ValueError:
                 print("\nCommand not found")
@@ -82,5 +82,9 @@ class LinearRegression:
         summatory_key_square = sum([key ** 2 for key in sample.keys()])
         dividend = (len(sample) * summatory_key_x_val) - (summatory_val * summatory_key)
         divider = (len(sample) * summatory_key_square) - (summatory_key ** 2)
-        pending = dividend / divider
-        return pending
+        return dividend / divider
+
+    def get_point_intersection(self, sample, pending):
+        mid_values = sum(sample.values()) / len(sample)
+        mid_keys = sum(sample.keys()) / len(sample)
+        return mid_values - (pending * mid_keys)
