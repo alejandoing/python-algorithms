@@ -50,23 +50,43 @@ class LinearRegression:
                 continue
 
     def random_numbers(self):
-        self.numbers = { x: random.randint(1,50) for x in range(random.randint(1,10)) }
-        return self.print_numbers()
+        while True:
+            size = random.randint(4, 10)
+            direction = random.randint(-10, 11)
+            start = [random.randint(2, 1000), random.randint(2, 1000)]
+
+            if direction > 0:
+                stop = [random.randint(start[0], 1000), random.randint(start[1], 1000)]
+                step = [random.randint(1, 100), random.randint(1, 100)]
+            else:
+                stop = [random.randint(2, start[0]), random.randint(2, start[1])]
+                step = [random.randint(1, 50) * (-1), random.randint(1, 50) * (-1)]
+
+            keys = list(x for idx, x in enumerate(range(start[0], stop[0], step[0])) if idx <= size)
+            values = list(x for idx, x in enumerate(range(start[1], stop[1], step[1])) if idx < len(keys))
+
+            if len(keys) < 4 or len(keys) != len(values): continue
+            self.numbers = {key: values[idx] for idx, key in enumerate(keys)}
+            return self.print_numbers()
 
     def manual_numbers(self):
         while True:
             self.numbers = {}
             try:
+                keys = list(map(int, str(input("\nWrite keys separated by comma: ")).split(',')))
                 values = list((map(int, str(input("\nWrite values separated by comma: ")).split(','))))
-                if len(values) == 1: raise ZeroDivisionError
-                self.numbers = {idx + 1: value for idx, value in enumerate(values)}
+                if len(values) == 1 or len(keys) == 1: raise ZeroDivisionError
+                self.numbers = {key: values[idx] for idx, key in enumerate(keys)}
                 return self.print_numbers()
             
             except ValueError:
                 print("\nPlease, just integers numbers seperated by coma.")
+
+            except IndexError:
+                print("\nMust write the same number of elements")
             
             except ZeroDivisionError:
-                print("\nPlease, write more than one number")
+                print("\nYou must write more than one key or a value. Avoid repeating the keys")
     
     def print_numbers(self):
         print("\nGenerated Sample:")
@@ -90,15 +110,10 @@ class LinearRegression:
         while True:
             try:
                 time_frame = int(input("\nWrite a index of prediction: "))
-                if time_frame <= list(sample.keys())[-1]:
-                    raise IndexError
                 prediction = point_intersection + (pending * time_frame)
                 print("\nThe prediction is {}".format(prediction))
                 question = "\nDo you want to look for another prediction (Y/N): "
-                if not self.choose_yes_or_not(question): break
-            
-            except IndexError:
-                print("\nTry with a greater number than {}".format(list(sample.keys())[-1]))
+                if not self.choose_yes_or_not(question): break       
             
             except ValueError:
                 print("\nPlease, just numbers")
@@ -107,10 +122,9 @@ class LinearRegression:
     def choose_yes_or_not(self, question):
         while True:
             answer = str(input(question)).lower()
-            if answer == 'n':
+            if answer == 'n': 
                 return False
-            elif answer == 'y':
+            elif answer == 'y': 
                 return True
             else:
-                print("\n Command not found")
-                continue
+                print("\nCommand not found")
