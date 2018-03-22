@@ -22,8 +22,8 @@ class LinearRegression:
             print(''' 
                 Select a option:
 
-                [1]: Random numbers
-                [2]: Manual numbers
+                [1]: Random sample
+                [2]: Manual sample
                 [3]: Back to main menu
                 [4]: Exit
             ''')
@@ -41,9 +41,9 @@ class LinearRegression:
                 else:
                     raise ValueError
                 
-                pending = self.get_pending(self.numbers)
-                point_intersection = self.get_point_intersection(self.numbers, pending)
-                self.get_prediction(self.numbers, pending, point_intersection)
+                pending = self.get_pending(self.sample)
+                point_intersection = self.get_point_intersection(self.sample, pending)
+                self.get_prediction(self.sample, pending, point_intersection)
 
             except ValueError:
                 print("\nCommand not found")
@@ -66,17 +66,17 @@ class LinearRegression:
             values = list(x for idx, x in enumerate(range(start[1], stop[1], step[1])) if idx < len(keys))
 
             if len(keys) < 4 or len(keys) != len(values): continue
-            self.numbers = {key: values[idx] for idx, key in enumerate(keys)}
+            self.sample = {key: values[idx] for idx, key in enumerate(keys)}
             return self.print_numbers()
 
     def manual_numbers(self):
         while True:
-            self.numbers = {}
+            self.sample = {}
             try:
                 keys = list(map(int, str(input("\nWrite keys separated by comma: ")).split(',')))
                 values = list((map(int, str(input("\nWrite values separated by comma: ")).split(','))))
                 if len(values) == 1 or len(keys) == 1: raise ZeroDivisionError
-                self.numbers = {key: values[idx] for idx, key in enumerate(keys)}
+                self.sample = {key: values[idx] for idx, key in enumerate(keys)}
                 return self.print_numbers()
             
             except ValueError:
@@ -90,7 +90,7 @@ class LinearRegression:
     
     def print_numbers(self):
         print("\nGenerated Sample:")
-        {print("\n{} => {}".format(key, val)) for key, val in self.numbers.items()}
+        {print("\n{} => {}".format(key, val)) for key, val in self.sample.items()}
 
     def get_pending(self, sample):
         summatory_key_x_val = sum([(key * val) for key, val in sample.items()])
@@ -113,8 +113,7 @@ class LinearRegression:
                 prediction = point_intersection + (pending * time_frame)
                 print("\nThe prediction is {}".format(prediction))
                 question = "\nDo you want to look for another prediction (Y/N): "
-                if not self.choose_yes_or_not(question): break       
-            
+                if not self.choose_yes_or_not(question): break
             except ValueError:
                 print("\nPlease, just numbers")
 
