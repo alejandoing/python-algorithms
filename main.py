@@ -4,6 +4,7 @@ from variance_deviation import VarianceDeviation
 from contact_book import ContactBook
 from hanged import Hanged
 from fibonacci import FibonacciSequence
+from linear_regression import LinearRegression
 
 def start():
 	print('''  
@@ -23,7 +24,7 @@ def start():
 		[4] - Contact Book
 		[5] - Hanged
 		[6] - Fibonacci
-		[7] - Coming soon...
+		[7] - Linear Regression
 		[8] - Coming soon...
 		[9] - Coming soon...
 		[10] - Coming soon...
@@ -51,7 +52,7 @@ def start():
 def run_program(option):
 	programs = { 
 		1: Cryptographer, 2: BinarySearch, 3: VarianceDeviation, 4: ContactBook, 5: Hanged,
-		6: FibonacciSequence 
+		6: FibonacciSequence, 7: LinearRegression 
 	}
 	return programs[option]().start()
 	
