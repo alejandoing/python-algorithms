@@ -4,6 +4,13 @@
 <i>Python Algorithms</i> es un conjunto de scripts escritos en Python que realizan diferentes funciones, desde encriptado y desencriptado de cadenas de texto hasta algoritmos base de Machine Learning como Regresión Lineal. Pueden ser ejecutados en cualquier sistema operativo que tenga instalado Python 2.7 o superarior. Este proyecto sirve como punto de partido para futuros desarrollos complejos con el lenguaje. Es importante mencionar que el programa tiene una entrada única en el archivo *main.py*. Allí aparece un pequeño menú para seleccionar el algoritmo que se quiere ejecutar y siempre podrás navegar a travé de los diferentes scripts sin necesidad de detener la ejecución. Todos están corriendo en un bucle dentro del archivo *main.py*
 </p>
 
+<p align="center">
+  <img src="https://taufanlubis.files.wordpress.com/2011/02/python01.png"/>
+</p>
+
+[![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
+[![python](https://img.shields.io/badge/python-2.6%2B-blue.svg)](https://python.org/)
+
 ## Cryptography
 
 *Cryptograhy* es un algoritmo que se encarga de realizar un proceso de encriptado y desencriptado binario.
