@@ -1,7 +1,7 @@
 # Python Algorithms
 
 <p align="justify">
-<i>Python Algorithms</i> es un conjunto de scripts escritos en Python que realizan diferentes funciones, desde encriptado y desencriptado de cadenas de texto hasta algoritmos base de Machine Learning como Regresión Lineal. Pueden ser ejecutados en cualquier sistema operativo que tenga instalado Python 2.7 o superarior. Este proyecto sirve como punto de partido para futuros desarrollos complejos con el lenguaje. Es importante mencionar que el programa tiene una entrada única en el archivo *main.py*. Allí aparece un pequeño menú para seleccionar el algoritmo que se quiere ejecutar y siempre podrás navegar a travé de los diferentes scripts sin necesidad de detener la ejecución. Todos están corriendo en un bucle dentro del archivo *main.py*
+<i>Python Algorithms</i> es un conjunto de scripts escritos en Python que realizan diferentes funciones, desde encriptado y desencriptado de cadenas de texto hasta algoritmos base de Machine Learning como Regresión Lineal. Pueden ser ejecutados en cualquier sistema operativo que tenga instalado Python 2.7 o superarior. Este proyecto sirve como punto de partido para futuros desarrollos complejos con el lenguaje. Es importante mencionar que el programa tiene una entrada única en el archivo <i>main.py</i>. Allí aparece un pequeño menú para seleccionar el algoritmo que se quiere ejecutar y siempre podrás navegar a travé de los diferentes scripts sin necesidad de detener la ejecución. Todos están corriendo en un bucle dentro del archivo <i>main.py</i>.
 </p>
 
 <p align="center">
