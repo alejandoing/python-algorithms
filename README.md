@@ -1,7 +1,7 @@
 # Python Algorithms
 
 <p align="justify">
-<i>Python Algorithms</i> es un conjunto de scripts escritos en Python que realizan diferentes funciones, desde encriptado y desencriptado de cadenas de texto hasta algoritmos base de Machine Learning como Regresión Lineal. Pueden ser ejecutados en cualquier sistema operativo que tenga instalado Python 2.7 o superarior. Este proyecto sirve como punto de partido para futuros desarrollos complejos con el lenguaje. Es importante mencionar que el programa tiene una entrada única en el archivo *main.py*. Allí aparece un pequeño menú para seleccionar el algoritmo que se quiere ejecutar y siempre podrás navegar a travé de los diferentes scripts sin necesidad de detener la ejecución. Todos están corriendo dentro de un ciclo dentro del archivo *main.py*
+<i>Python Algorithms</i> es un conjunto de scripts escritos en Python que realizan diferentes funciones, desde encriptado y desencriptado de cadenas de texto hasta algoritmos base de Machine Learning como Regresión Lineal. Pueden ser ejecutados en cualquier sistema operativo que tenga instalado Python 2.7 o superarior. Este proyecto sirve como punto de partido para futuros desarrollos complejos con el lenguaje. Es importante mencionar que el programa tiene una entrada única en el archivo *main.py*. Allí aparece un pequeño menú para seleccionar el algoritmo que se quiere ejecutar y siempre podrás navegar a travé de los diferentes scripts sin necesidad de detener la ejecución. Todos están corriendo en un bucle dentro del archivo *main.py*
 </p>
 
 ## Cryptography
@@ -22,7 +22,9 @@ La función de desencriptado realiza el proceso inverso, al introducir un códig
 
 ## Binary Search
 
-Coming soon...
+<p align="justify">
+<i>Binary Search</i> es un algortimo que se encarga de realizar una búsqueda inteligente de un elemento dentro de una lista de números secuenciales. El usuario tendrá la posibilidad de ingresar una lista de números manualmente o podrá optar por utilizar el mecanismo de generación automática de una lista de números aletorios. Posterior a la escogencia de una de las dos opciones disponibles deberá ingresar un número a buscar dentro de la lista. El algoritmo comienza a funcionar: por cada iteración se reduce a la mitad el rango de búsqueda y retorna un mensaje en pantalla. Finalmente, se notifica al usuario si la búsqueda ha tenido éxito o no. También se especifica la duración en segundos que ha tomado todo el proceso.
+</p>
 
 ## Variance and Deviation Standard
 
