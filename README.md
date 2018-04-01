@@ -46,7 +46,7 @@ Por otro lado, el algoritmo adicionalmente tiene la funcionalidad de obtener la 
 ## Contact Book
 
 <p align="justify">
-<i>Contact Book</i>, tal como su nombre lo indica, emula algunas funcionalidades de una sencilla agenda de contactos. En primera luego se puede agregar un contacto con los atributos: nombre, teléfo e email. Luego tenemos el resto de las opciones CRUD (leer, actualizar y eliminar). Es posible realizar una búsqueda a partir del nombre de contacto. El programa no permite el registro de dos contactos con el mismo nombre. Ahora bien, además de realizar todas las opciones comunes de una entidad, se habilita la posibilidad de mantener los datos en el tiempo a traves de métodos de lectura y escritura de archivos .CSV. En pocas palabras, <i>Contact Book</i> trabaja con una pequeña base de datos. 
+<i>Contact Book</i>, tal como su nombre lo indica, emula algunas funcionalidades de una sencilla agenda de contactos. En primera lugar se puede agregar un contacto con los atributos: nombre, teléfo e email. Luego tenemos el resto de las opciones CRUD (leer, actualizar y eliminar). Es posible realizar una búsqueda a partir del nombre de contacto. El programa no permite el registro de dos contactos con el mismo nombre. Ahora bien, además de realizar todas las opciones comunes de una entidad, se habilita la posibilidad de mantener los datos en el tiempo a traves de métodos de lectura y escritura de archivos .CSV. En pocas palabras, <i>Contact Book</i> trabaja con una pequeña base de datos. 
 </p>
 
 ## Hanged
