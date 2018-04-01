@@ -35,7 +35,13 @@ La función de desencriptado realiza el proceso inverso, al introducir un códig
 
 ## Variance and Deviation Standard
 
-Coming soon...
+<p align="justify">
+<i>Variance and Deviation Standard</i> es un algoritmo que se encarga de obtener, en primera instancia, una variable aleatoria, que en teoría de probabilidad se conoce como <i>Varianza</i>, representa una medida de dispersión definida como la esperanza del cuadrado de la desviación de dicha variable respecto a su media. O en pocas palabras, la media de los residuos al cuadrado. La <i>Varianza</i> se obtiene a partir de su formula genérica. El método recibe una lista de números y realiza las operaciones matemáticas correspondientes hasta retornar el resultado correspondiente.
+</p>
+
+<p align="justify">
+Por otro lado, el algoritmo adicionalmente tiene la funcionalidad de obtener la <i>Desviación Estándar</i> o <i>Desviación Típica</i>, una medida de dispersión para variables de razón (variables cuantitativas o cantidades racionales) y de intervalo. Se define como la raíz cuadrada de la varianza de la variable. Este método se ejecuta justo después de obtener la <i>Varianza</i> y recibe como parámetro el resultado de la anterior operación y la lista de números. Se encarga de aplicar la formula matemática genérica y luego retornar el resultado final en pantalla.
+</p>
 
 ## Contact Book
 
