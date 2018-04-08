@@ -36,7 +36,7 @@ La función de desencriptado realiza el proceso inverso, al introducir un códig
 ## Variance and Deviation Standard
 
 <p align="justify">
-<i>Variance and Deviation Standard</i> es un algoritmo que se encarga de obtener, en primera instancia, una variable aleatoria, que en teoría de probabilidad se conoce como <i>Varianza</i>, representa una medida de dispersión definida como la esperanza del cuadrado de la desviación de dicha variable respecto a su media. O en pocas palabras, la media de los residuos al cuadrado. La <i>Varianza</i> se obtiene a partir de su formula genérica. El método recibe una lista de números y realiza las operaciones matemáticas correspondientes hasta retornar el resultado correspondiente.
+<i>Variance and Deviation Standard</i> es un algoritmo que se encarga de obtener, en primera instancia, una variable aleatoria, que en teoría de probabilidad se conoce como <i>Varianza</i>, representa una medida de dispersión definida como la esperanza del cuadrado de la desviación de dicha variable respecto a su media. O en pocas palabras, la media de los residuos al cuadrado. La <i>Varianza</i> se obtiene a partir de su formula genérica. El método recibe una lista de números y realiza las operaciones matemáticas necesarias hasta retornar el resultado correspondiente.
 </p>
 
 <p align="justify">
@@ -58,7 +58,7 @@ Por otro lado, el algoritmo adicionalmente tiene la funcionalidad de obtener la 
 ## Fibonacci
 
 <p align="justify">
-<i></i>
+<i>Fibonacci</i> es un algoritmo inspirado en la histórica Secuencia de Fibonacci. En primer lugar se tiene la posibilidad, a través de un índice previamente ingresado en pantalla, obtener el número correspondiente en la Secuencia. Por otro lado, está desarrollada la funcionalidad de imprimir la Secuencia hasta un límite establecido. Para ambos procesos se respeta la formula original de la Secuencia al realizar la suma de los dos números anteriores para generar el siguiente. Se utiliza la estructura de listas en los métodos conjuntamente con secuencias de código que generan la información correspondiente en tiempo record.
 </p>
 
 ## Linear Regression
