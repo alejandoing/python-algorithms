@@ -58,7 +58,7 @@ Por otro lado, el algoritmo adicionalmente tiene la funcionalidad de obtener la 
 ## Fibonacci
 
 <p align="justify">
-<i>Fibonacci</i> es un algoritmo inspirado en la histórica Secuencia de Fibonacci. En primer lugar se tiene la posibilidad, a través de un índice previamente ingresado en pantalla, obtener el número correspondiente en la Secuencia. Por otro lado, está desarrollada la funcionalidad de imprimir la Secuencia hasta un límite establecido. Para ambos procesos se respeta la formula original de la Secuencia al realizar la suma de los dos números anteriores para generar el siguiente. Se utiliza la estructura de listas en los métodos conjuntamente con secuencias de código que generan la información correspondiente en tiempo record.
+<i>Fibonacci</i> es un algoritmo inspirado en la histórica Secuencia de Fibonacci. En primer lugar se tiene la posibilidad, a través de un índice previamente ingresado en pantalla, obtener el número correspondiente en la Secuencia. Por otro lado, está desarrollada la funcionalidad de imprimir la Secuencia hasta un límite establecido. Para ambos procesos se respeta la formula original de la Secuencia al realizar la suma de los dos números anteriores para generar el siguiente. Se utiliza la estructura de listas en los métodos conjuntamente con secuencias repetitivas de código que generan la información correspondiente en tiempo record.
 </p>
 
 ## Linear Regression
