@@ -64,7 +64,7 @@ Por otro lado, el algoritmo adicionalmente tiene la funcionalidad de obtener la 
 ## Linear Regression
 
 <p align="justify">
-<i>Linear Regression</i> es un algoritmo que representa el modelo matemático para aproximar la relación de dependencia entre una variable dependiente Y, las variables independientes Xi y un término aleatorio εg. En otras palabras se encarga de predecir, a partir de una serie de datos lineales —ingresados manualmente o generados de manera aleatoria—, cualquier valor en el futuro. Para llegar al resultado correcto se aplica la formula original y se obtienen datos parciales como la <i>Pendiente</i> y el <i>Punto de Intersección</i> que posteriormente se utilizan en el método central que retorna la predicción correspondiente. 
+<i>Linear Regression</i> es un algoritmo que representa el modelo matemático para aproximar la relación de dependencia entre una variable dependiente Y, las variables independientes Xi y un término aleatorio εg. En otras palabras se encarga de predecir, a partir de una serie de datos lineales —ingresados manualmente o generados de manera aleatoria—, cualquier valor en el futuro. Para llegar al resultado correcto se aplica la formula original y se obtienen datos parciales como la <i>Pendiente</i> y el <i>Punto de Intersección</i> que posteriormente se utilizan en el método central que retorna la predicción correspondiente. El algoritmo además, se ejecuta con un bucle que permite obtener <i>n</i> predicciones posibles a partir de la elección del usuario (Y/N).
 </p>
 
 ## Licencia
