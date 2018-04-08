@@ -11,6 +11,14 @@
 [![made-for-VSCode](https://img.shields.io/badge/Made%20for-VSCode-1f425f.svg)](https://code.visualstudio.com/)
 [![python](https://img.shields.io/badge/python-2.6%2B-blue.svg)](https://python.org/)
 
+## Instalación
+
+```
+git clone git@github.com:alejandoing/python-algorithms.git
+
+python main.py
+```
+
 ## Cryptography
 
 *Cryptograhy* es un algoritmo que se encarga de realizar un proceso de encriptado y desencriptado binario.
